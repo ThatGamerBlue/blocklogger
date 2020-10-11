@@ -15,6 +15,7 @@ public class BlockLogger implements ModInitializer {
         CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
             Commands.register(dispatcher);
         });
+        // Register database connection
         ServerLifecycleEvents.SERVER_STARTED.register(DbConn::connect);
         PlayerBlockBreakEvents.AFTER.register((world, player, pos, state, entity) -> {
             //SQL
